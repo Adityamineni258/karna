@@ -34,11 +34,11 @@
 ## Getting Started:
 
 1.  **Installation/Setup (If applicable):**
-    * Provide clear instructions on how to install or set up the application or access the web service.
+    * To try out the app u can generate ur api key and insert it in the specified place.
 2.  **Basic Usage:**
-    * Explain how to initiate a conversation and use the key features.
+    * It acts as a normal friend with great mental health advice!
 3.  **Language Selection (for voice support):**
-    * Describe how the user can choose which language they would like to use.
+    * You can choose any languages u want in the list and go on chat.
 
 ## Tech Stack (If applicable, or describe the underlying technologies):
 
