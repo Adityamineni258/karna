@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Talking Emoji Chatbot</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <select id="languageSelect">
+        <option value="en-US">English (United States)</option>
+        <option value="es-ES">Spanish (Spain)</option>
+        <option value="fr-FR">French (France)</option>
+        <option value="zh-CN">Chinese (Simplified, China)</option>
+        <option value="hi-IN">Hindi (India)</option>
+        <option value="de-DE">German (Germany)</option>
+        <option value="en-GB">English (United Kingdom)</option>
+        <option value="es-US">Spanish (United States)</option>
+        <option value="it-IT">Italian (Italy)</option>
+        <option value="ja-JP">Japanese (Japan)</option>
+        <option value="ko-KR">Korean (South Korea)</option>
+        <option value="nl-NL">Dutch (Netherlands)</option>
+        <option value="pl-PL">Polish (Poland)</option>
+        <option value="pt-BR">Portuguese (Brazil)</option>
+        <option value="ru-RU">Russian (Russia)</option>
+    </select>
+    
+    <div class="container hidden">
+        <div id="emoji-container">
+            <img id="emoji" src="happy-normal.svg" alt="Emoji">
+        </div>
+        <div class="output-area" id="output"></div>
+        <div class="sender-area">
+            <div class="input-place">
+                <input id="prompt" placeholder="Send a message." class="send-input" type="text">
+                <div class="send" id="sendBtn">
+                    <svg class="send-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M481.508,210.336L68.414,38.926c-17.403-7.222-37.064-4.045-51.309,8.287C2.86,59.547-3.098,78.551,1.558,96.808L38.327,241h180.026c8.284,0,15.001,6.716,15.001,15.001c0,8.284-6.716,15.001-15.001,15.001H38.327L1.558,415.193c-4.656,18.258,1.301,37.262,15.547,49.595c14.274,12.357,33.937,15.495,51.31,8.287l413.094-171.409C500.317,293.862,512,276.364,512,256.001C512,235.638,500.317,218.139,481.508,210.336z"></path>
+                    </svg>
+                    <div class="loading-spinner" id="loading-spinner"></div>
+                </div>
+                <div class="send" id="voiceBtn">
+                    <img src="./assets/microphone.svg" alt="Microphone" class="mic-icon">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
