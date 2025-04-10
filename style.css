@@ -286,7 +286,7 @@ select {
     border-radius: 50%;
     width: 24px;
     height: 24px;
-    animation: spin 1s linear infinite;
+    animation: rotate 1s linear infinite;
 }
 #voiceBtn {
     background-color: transparent;
@@ -300,14 +300,16 @@ select {
     height: 24px;
 }
 
-.mic-loading .mic-icon {
-    animation: spin 1s linear infinite;
-}
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .mic-icon.rotating {
+    animation: rotate 1s linear infinite;
+  }
+  
 
 @media (max-width: 600px) {
     .animated-button {
