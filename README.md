@@ -127,11 +127,3 @@ We believe everyone deserves access to safe, intelligent, and empathetic mental 
 ---
 
 **🔗 Live Site:** [https://astoundin.netlify.app](https://astoundin.netlify.app)
-```
-
----
-
-Let me know if you'd like:
-- A GitHub repository description,
-- Contribution templates (`CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`),
-- Or badges like `Netlify deploy status`, `MIT License`, etc., added to the top.
