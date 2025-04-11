@@ -82,6 +82,7 @@
 ```bash
 git clone https://github.com/your-username/mental-health-companion.git
 cd mental-health-companion
+'''
 
 2. Setup
 Deploy geminiChatbot backend via Google Cloud Functions.
