@@ -1,0 +1,85 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #1a1a1a, #121212);
+  color: white;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  background: #1e1e1e;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  animation: fadeIn 0.6s ease-out;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+}
+
+.auth-buttons button {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.25s ease, background-color 0.3s ease;
+  background-size: 200% auto;
+}
+
+.auth-buttons button:first-child {
+  background-image: linear-gradient(to right, #4285f4, #34a853);
+}
+
+.auth-buttons button:last-child {
+  background-image: linear-gradient(to right, #444, #111);
+}
+
+.auth-buttons button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.6rem;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 2rem;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cta:hover {
+  background: linear-gradient(to right, #2575fc, #6a11cb);
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
