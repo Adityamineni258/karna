@@ -1,31 +1,49 @@
-# 🧠 KARNA The Mental Health Companion  
-**Your Personalized AI Wellness Partner**  
+# 🧠 KARNA — The Mental Health Companion  
+**Your Private AI Wellness Partner**
 
-**Live Site:** [astoundin.netlify.app](https://astoundin.netlify.app)
+**🔗 Live Site:** [https://astoundin.netlify.app](https://astoundin.netlify.app)
 
 ---
 
 ## 🌟 Overview
 
-*The Mental Health Companion* is an innovative, AI-powered assistant designed to offer emotional support and wellness guidance through natural conversations. It adapts to your emotional state using dynamic emotional intelligence, supporting voice and text input across 13+ languages.
+*KARNA* is a privacy-first, AI-powered mental health assistant offering emotional support through voice or text conversations. It adapts to your emotional state using emoji-driven emotional intelligence and supports multilingual interaction to promote accessibility and comfort.
 
 ---
 
 ## 💡 Features
 
-### 🗣️ Natural Language Understanding (NLU)
-- Powered by **Gemini 2.0 Flash**, enabling natural, context-aware conversations.
-- Understands emotional nuances and subtle expressions.
+### 🔐 Secure Firebase Authentication
+- **Google & GitHub Sign-In** via Firebase Authentication.
+- Auth state is used to **restrict access** to the chatbot until login.
+- Ensures user identity is verified before any interaction.
+- **No personal chat data is stored** — all processing is done in-memory and in real time for maximum privacy.
 
-### 💖 Emotional Intelligence
-- Detects a wide range of emotional states and dynamically responds with empathy.
-- Provides affirmations, advice, mindfulness tips, and emotional regulation strategies.
-- Emoji expressions enhance emotional clarity.
+### 💖 Emotional Intelligence with Emoji Feedback
+- Detects and reflects user emotion using Gemini Flash + emoji expressions.
+- Provides mood-aligned suggestions like affirmations, mindfulness tips, or empathetic replies.
+- Dynamically switches emoji states to enhance visual feedback.
 
-### 🌐 Multilingual Voice Interaction
-- Supports 13+ languages using **Web Speech API**.
-- Voice-to-text and text-to-voice capabilities.
-- Lets users talk to the assistant in their native language for better comfort and accuracy.
+### 🗣️ Multilingual Voice & Text Interaction
+- Powered by **Web Speech API** for both speech-to-text and **response readout**.
+- Users can **speak naturally** and hear back the AI’s response.
+- **Voice readout** helps users who are **visually impaired or blind** interact with the assistant seamlessly.
+- Supports **13 languages**, selectable via a dropdown UI.
+
+#### ✅ Supported Languages
+- English (US, UK, India)
+- Hindi  
+- Spanish (Spain, US)  
+- French  
+- Chinese (Simplified)  
+- German  
+- Italian  
+- Japanese  
+- Korean  
+- Dutch  
+- Polish  
+- Portuguese (Brazil)  
+- Russian  
 
 ---
 
@@ -33,12 +51,27 @@
 
 | Feature                         | Technology                      |
 |-------------------------------|----------------------------------|
-| NLP & Emotional AI            | Gemini 2.0 Flash (via API)       |
-| Voice Recognition & Synthesis | Web Speech API                   |
+| Emotional AI & NLU            | Gemini 2.0 Flash (Google API)    |
 | Frontend                      | HTML, CSS, JavaScript            |
-| Backend Integration           | Google Cloud Functions (Node.js) |
-| Secure API Handling           | Google Secret Manager            |
-| Hosting                       | Netlify                          |
+| Voice Interaction             | Web Speech API                   |
+| Authentication                | Firebase Auth (Google, GitHub)   |
+| Secure Hosting                | Netlify                          |
+| API Security                  | Google Secret Manager            |
+| Backend Proxy                 | Google Cloud Function (Node.js)  |
+
+---
+
+## 🔒 Privacy-First & Inclusive by Design
+
+- No conversations are stored.
+- No third-party analytics or tracking scripts.
+- Firebase Auth is used **only for identity gating**.
+- API keys are stored securely in **Google Secret Manager**.
+- All interaction is **session-based and local** to the user’s browser.
+- **Voice readout ensures accessibility** for blind or visually impaired users.
+- UI is keyboard-navigable and screen-reader friendly.
+
+> 🛡️ Your mental wellness is personal — KARNA ensures it stays that way.
 
 ---
 
@@ -49,81 +82,47 @@
 ```bash
 git clone https://github.com/your-username/mental-health-companion.git
 cd mental-health-companion
-```
 
-### 2. Setup (For Developers)
+2. Setup
+Deploy geminiChatbot backend via Google Cloud Functions.
 
-- Deploy the `geminiChatbot` backend via Google Cloud Functions.
-- Use **Google Secret Manager** to store your Gemini API key securely.
-- Update the frontend fetch URL in `script.js` with your deployed backend endpoint.
+Store your Gemini API key using Google Secret Manager.
 
-### 3. Run Locally
+Set the deployed URL in script.js.
 
-- Open `index.html` in your browser.
-- Start chatting using text or voice.
-- Select your preferred language for multilingual support.
+3. Run Locally
+Open login.html and sign in via Google or GitHub.
 
----
+Once authenticated, index.html will load automatically.
 
-## 🌍 Supported Languages
+Start chatting with your AI wellness companion using voice or text.
 
-Supports 13+ languages including:
+📈 Future Roadmap
+Personalized daily check-ins & journaling (fully encrypted).
 
-- English (US, UK, India)
-- Hindi
-- Telugu
-- Tamil
-- Kannada
-- Bengali
-- Spanish
-- Arabic
-- Mandarin
-- French
-- German
-- Japanese
+Wearable device integration for biofeedback-based support.
 
-> New languages and dialects will be added regularly.
+AI-driven self-care recommendations.
 
----
+Offline-first PWA version.
 
-## 📈 Future Roadmap
+Community forums with anonymity built-in.
 
-- Personalized wellness plans based on user interaction patterns.
-- Integration with wearables (like Fitbit, Apple Watch).
-- Encrypted journaling and mood tracking.
-- Community support and anonymous forums.
-- Expanded multilingual voice synthesis.
-- Memory retention for long-term mental health analysis.
-
----
-
-## 🤝 Contributing
-
+🤝 Contributing
 We welcome contributions!
 
-1. Fork the repo
-2. Create a feature branch (`git checkout -b feature-name`)
-3. Commit changes (`git commit -m "Added feature"`)
-4. Push to the branch (`git push origin feature-name`)
-5. Open a Pull Request
+Fork the repo
 
-See our [Contribution Guidelines](#) for more info.
+Create a feature branch
 
----
+Push your changes
 
-## ⚠️ Disclaimer
+Open a Pull Request
 
-> This tool is **not a substitute for professional mental health care**. It is intended for informational and supportive purposes only.  
-> If you are experiencing a crisis, please seek help from a licensed mental health professional.  
-> This is an experimental prototype—use responsibly and avoid any malicious or unethical usage.
+⚠️ Disclaimer
+KARNA is not a substitute for professional help.
+It is an experimental support tool, not a licensed counselor.
+If you're in crisis, please seek immediate help from mental health professionals.
 
----
-
-## 💖 Our Vision
-
-We believe everyone deserves access to safe, intelligent, and empathetic mental wellness tools.  
-*The Mental Health Companion* is our small step toward a more emotionally aware digital future.
-
----
-
-**🔗 Live Site:** [https://astoundin.netlify.app](https://astoundin.netlify.app)
+💖 Our Vision
+To create a secure, compassionate, multilingual, and accessible digital companion that empowers everyone — especially the underrepresented — to take charge of their emotional wellbeing with empathy and dignity.
