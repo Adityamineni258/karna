@@ -1,3 +1,32 @@
+import app from './firebase-config.js';
+import {
+  getAuth
+} from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+
+const auth = getAuth(app);
+
+// 👇 Exported to be used from auth.js
+export function showChatUI(user) {
+  const usernameEl = document.getElementById("username");
+  if (usernameEl) {
+    const name = user.displayName || user.email;
+    usernameEl.innerText = `Hello, ${name}`;
+  }
+
+  const chatContainer = document.getElementById("chat-container");
+  if (chatContainer) {
+    chatContainer.style.display = "block"; // Show chatbot UI
+  }
+
+  // ✅ Initialize the chatbot only once UI is ready
+  if (typeof initChatbot === "function") {
+    initChatbot(); // Assumes this is defined globally elsewhere
+  } else {
+    console.warn("initChatbot() is not defined");
+  }
+}
+
+  
 document.addEventListener('DOMContentLoaded', () => {
     const userInputElement = document.getElementById('prompt');
     const sendButton = document.getElementById('sendBtn');
@@ -31,7 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const recognition = new webkitSpeechRecognition();
         recognition.continuous = true;
         recognition.interimResults = true;
-        recognition.lang = 'en-US';
+        recognition.lang = languageSelect.value;
+
 
         micIcon.addEventListener('click', async () => {
             if (isListening) {
