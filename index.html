@@ -3,6 +3,7 @@
 <head>
     <title>Talking Emoji Chatbot</title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +28,12 @@
         <option value="pt-BR">Portuguese (Brazil)</option>
         <option value="ru-RU">Russian (Russia)</option>
     </select>
-    
+    <div class="top-right-logout">
+        <button id="logout-btn">Sign Out</button>
+      </div>
+      
     <div class="container hidden">
+        
         <div id="emoji-container">
             <img id="emoji" src="happy-normal.svg" alt="Emoji">
         </div>
@@ -48,6 +53,10 @@
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
+<!-- Modular Firebase-only scripts handled inside modules -->
+<script type="module" src="script.js"></script>
+<script type="module" src="auth.js"></script>
+
+
 </body>
 </html>
