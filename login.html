@@ -1,0 +1,25 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mental Health Companion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Karna The Mental Health Companion</h1>
+    <p>Your personalized AI wellness partner</p>
+
+    <div class="auth-buttons">
+      <button onclick="googleLogin()">Sign in with Google</button>
+      <button onclick="githubLogin()">Sign in with GitHub</button>
+    </div>
+  </div>
+
+  <!-- Use ES Modules for modern Firebase SDK -->
+  <script type="module" src="auth.js"></script>
+</body>
+</html>
