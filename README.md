@@ -84,46 +84,47 @@ git clone https://github.com/your-username/mental-health-companion.git
 cd mental-health-companion
 ```
 
-2. Setup
-Deploy geminiChatbot backend via Google Cloud Functions.
+### 2. Setup
+- Deploy `geminiChatbot` backend via Google Cloud Functions.
+- Store your Gemini API key using **Google Secret Manager**.
+- Set the deployed URL in `script.js`.
 
-Store your Gemini API key using Google Secret Manager.
+### 3. Run Locally
+- Open `login.html` and sign in via Google or GitHub.
+- Once authenticated, `index.html` will load automatically.
+- Start chatting with your AI wellness companion using voice or text.
 
-Set the deployed URL in script.js.
+---
 
-3. Run Locally
-Open login.html and sign in via Google or GitHub.
+## 📈 Future Roadmap
+- Personalized daily check-ins & journaling (fully encrypted)
+- Wearable device integration for biofeedback-based support
+- AI-driven self-care recommendations
+- Offline-first PWA version
+- Community forums with anonymity built-in
 
-Once authenticated, index.html will load automatically.
+---
 
-Start chatting with your AI wellness companion using voice or text.
-
-📈 Future Roadmap
-Personalized daily check-ins & journaling (fully encrypted).
-
-Wearable device integration for biofeedback-based support.
-
-AI-driven self-care recommendations.
-
-Offline-first PWA version.
-
-Community forums with anonymity built-in.
-
-🤝 Contributing
+## 🤝 Contributing
 We welcome contributions!
 
-Fork the repo
+1. Fork the repo  
+2. Create a feature branch  
+3. Push your changes  
+4. Open a Pull Request
 
-Create a feature branch
+---
 
-Push your changes
+## ⚠️ Disclaimer
+> KARNA is **not a substitute for professional help**.  
+> It is an experimental support tool, not a licensed counselor.  
+> If you're in crisis, please seek immediate help from mental health professionals.
 
-Open a Pull Request
+---
 
-⚠️ Disclaimer
-KARNA is not a substitute for professional help.
-It is an experimental support tool, not a licensed counselor.
-If you're in crisis, please seek immediate help from mental health professionals.
-
-💖 Our Vision
+## 💖 Our Vision
 To create a secure, compassionate, multilingual, and accessible digital companion that empowers everyone — especially the underrepresented — to take charge of their emotional wellbeing with empathy and dignity.
+
+---
+
+**🔗 Live Site:** [https://astoundin.netlify.app](https://astoundin.netlify.app)
