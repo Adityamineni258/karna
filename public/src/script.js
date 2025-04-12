@@ -17,13 +17,6 @@ export function showChatUI(user) {
   if (chatContainer) {
     chatContainer.style.display = "block"; // Show chatbot UI
   }
-
-  // ✅ Initialize the chatbot only once UI is ready
-  if (typeof initChatbot === "function") {
-    initChatbot(); // Assumes this is defined globally elsewhere
-  } else {
-    console.warn("initChatbot() is not defined");
-  }
 }
 
 
