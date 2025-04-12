@@ -1,85 +1,131 @@
-body {
-  font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(135deg, #1a1a1a, #121212);
-  color: white;
+:root {
+  --clr-bg: #ffffff;
+  --clr-dark: #1e293b;
+  --clr-deep: #0f172a;
+  --clr-light: #f9fafb;
+  --clr-border: #d1d5db;
+  --clr-border-hover: #cbd5e1;
+  --clr-muted: #475569;
+
+  --fs-heading: clamp(1.5rem, 5vw, 1.8rem);
+  --fs-text: clamp(0.95rem, 3.5vw, 1rem);
+}
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
   height: 100vh;
+  background: url('assets/back.svg') no-repeat center center fixed;
+  background-size: cover;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  color: var(--clr-dark);
+  padding: 1rem;
 }
 
 .container {
-  background: #1e1e1e;
-  padding: 2.5rem;
-  border-radius: 2rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  background: var(--clr-bg);
+  padding: 2.5rem 1.75rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   text-align: center;
-  max-width: 400px;
-  width: 90%;
-  animation: fadeIn 0.6s ease-out;
+  max-width: 26rem;
+  width: 100%;
 }
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1.2rem;
+.container h1 {
+  font-size: var(--fs-heading);
+  font-weight: 700;
+  color: var(--clr-deep);
+  margin-bottom: 0.5rem;
+}
+
+.container p {
+  font-size: var(--fs-text);
+  color: var(--clr-muted);
+  margin-bottom: 2rem;
+}
+
+.auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border: none;
+  border-radius: 9999px;
+  font-size: var(--fs-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  min-height: 3.25rem;
+}
+
+.login-btn:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.login-btn img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.login-btn.google {
+  background: var(--clr-bg);
+  color: var(--clr-dark);
+  border: 2px solid var(--clr-border);
+}
+
+.login-btn.google:hover {
+  background: var(--clr-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(66, 133, 244, 0.15);
+  border-color: var(--clr-border-hover);
+}
+
+.login-btn.github {
+  background: var(--clr-dark);
   color: #ffffff;
 }
 
-.auth-buttons button {
-  display: block;
-  width: 100%;
-  margin: 12px 0;
-  padding: 0.8rem 1.2rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  border-radius: 1rem;
-  cursor: pointer;
-  color: white;
-  transition: transform 0.25s ease, background-color 0.3s ease;
-  background-size: 200% auto;
+.login-btn.github:hover {
+  background: #111827;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.auth-buttons button:first-child {
-  background-image: linear-gradient(to right, #4285f4, #34a853);
-}
-
-.auth-buttons button:last-child {
-  background-image: linear-gradient(to right, #444, #111);
-}
-
-.auth-buttons button:hover {
-  transform: scale(1.05);
-  filter: brightness(1.1);
-}
-
-.cta {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.9rem 1.6rem;
-  background: linear-gradient(to right, #6a11cb, #2575fc);
-  color: white;
-  font-size: 1rem;
-  text-decoration: none;
-  border-radius: 2rem;
-  font-weight: bold;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.cta:hover {
-  background: linear-gradient(to right, #2575fc, #6a11cb);
-  transform: scale(1.05);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
+/* Mobile Enhancements */
+@media (max-width: 480px) {
+  .container {
+    padding: 2rem 1.25rem;
+    border-radius: 1rem;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+
+  .auth-buttons {
+    gap: 1rem;
+  }
+
+  .login-btn {
+    font-size: 0.95rem;
+    padding: 1rem 1rem;
+  }
+
+  .login-btn img {
+    width: 1.25rem;
+    height: 1.25rem;
   }
 }
