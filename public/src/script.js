@@ -26,6 +26,7 @@ export function showChatUI(user) {
   }
 }
 
+
   
 document.addEventListener('DOMContentLoaded', () => {
     const userInputElement = document.getElementById('prompt');
@@ -38,11 +39,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const micIcon = voiceBtn.querySelector('.mic-icon'); 
     const languageSelect = document.getElementById('languageSelect');
 
-    const stopButton = document.createElement('button');
-    stopButton.textContent = 'Stop';
-    stopButton.id = 'stopButton';
-    stopButton.style.display = 'none';
-    micIcon.parentNode.insertBefore(stopButton, micIcon.nextSibling);
+    
+    userInputElement.addEventListener('input', () => {
+        const cursorPosition = userInputElement.selectionStart;
+      
+        let text = userInputElement.value;
+        if (text.length > 0) {
+          const firstChar = text.charAt(0).toUpperCase();
+          const rest = text.slice(1);
+          const newText = firstChar + rest;
+      
+          if (newText !== text) {
+            userInputElement.value = newText;
+            userInputElement.setSelectionRange(cursorPosition, cursorPosition);
+          }
+        }
+      });
+      
 
     let isListening = false;
     let recognizing = false;
@@ -67,14 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isListening) {
                 recognition.stop();
                 micIcon.classList.remove('rotating');
-
-                stopButton.style.display = 'none';
                 isListening = false;
             } else {
                 try {
                     await navigator.mediaDevices.getUserMedia({ audio: true });
                     micIcon.classList.add('rotating');
-                    stopButton.style.display = 'none';
                     recognition.start();
                     isListening = true;
                     recognizing = true;
@@ -82,19 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.error("Microphone access error:", error);
                     outputArea.innerText = "Microphone access denied or error.";
                     micIcon.classList.remove('rotating');
-
-                    stopButton.style.display = 'none';
                     isListening = false;
                 }
             }
         });
 
-        stopButton.addEventListener('click', () => {
-            recognition.stop();
-            micIcon.classList.remove('rotating');
-            stopButton.style.display = 'none';
-            isListening = false;
-        });
         let latestTranscript = '';
         let enterPressedDuringRecognition = false;
         
@@ -124,14 +126,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 outputArea.innerText = "Speech recognition error.";
             }
             micIcon.classList.remove('rotating');
-
-            stopButton.style.display = 'none';
             isListening = false;
         };
 
         recognition.onend = () => {
             micIcon.classList.remove('rotating');
-            stopButton.style.display = 'none';
             isListening = false;
             recognizing = false;
         
@@ -151,8 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
         sendButton.addEventListener('click', () => {
             recognition.stop();
             micIcon.classList.remove('rotating');
-
-            stopButton.style.display = 'none';
             isListening = false;
         });
 
@@ -171,7 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 enterPressedDuringRecognition = true;
                 recognition.stop(); // triggers onend
                 micIcon.classList.remove('rotating');
-                stopButton.style.display = 'none';
                 isListening = false;
                 recognizing = false;
             } else {
@@ -190,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
             function attemptSpeak() {
                 const selectedVoice = findVoice(lang);
                 if (!selectedVoice) {
-                    outputArea.innerText += `\n Text to speech is not available for language: ${lang}.`;
+                    console.warn(`Text to speech is not available for language: ${lang}.`);
                     return;
                 }
                 try {
@@ -215,7 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 } catch (utteranceError) {
                     console.error("Error creating SpeechSynthesisUtterance:", utteranceError);
-                    outputArea.innerText += "\n An internal error occurred during text to speech.";
+                    console.warn(`Text to speech is not available for language: ${lang}.`);
                 }
             }
             if (window.speechSynthesis.getVoices().length === 0) {
@@ -261,7 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
             if (geminiResponse.emoji && geminiResponse.emoji.expression) {
-                emojiElement.src = `assets/icons/${geminiResponse.emoji.expression}.svg`;
+                emojiElement.src = `${geminiResponse.emoji.expression}.svg`;
             }
 
             conversationHistory.push({ role: 'model', parts: [{ text: cleanedResponse }] });
@@ -376,4 +372,6 @@ document.addEventListener('DOMContentLoaded', () => {
         outputElement.innerText = '';
         addWord();
     }
+   
+
 });
