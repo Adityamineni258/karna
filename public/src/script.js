@@ -261,11 +261,12 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Error:', error);
             outputArea.innerText = `An error occurred: ${error.message || 'Unknown error'}`;
+        } finally {
+            sendIcon.style.display = 'block';
+            loadingSpinner.style.display = 'none';
+            userInputElement.value = '';
+            userInputElement.disabled = false; // Enable input field once processing is done
         }
-
-        sendIcon.style.display = 'block';
-        loadingSpinner.style.display = 'none';
-        userInputElement.value = '';
     }
 
     async function getGeminiChatbotResponse(history, languageCode, prompt) {
@@ -286,6 +287,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const lastIdx = modifiedHistory.length - 1;
                     const originalText = modifiedHistory[lastIdx].parts[0].text;
                     modifiedHistory[lastIdx].parts[0].text = `Respond in ${languageCode}: ${originalText}`;
+                }
+                // Remove any leading model responses (Gemini can't start with model role)
+                while (modifiedHistory.length && modifiedHistory[0].role !== 'user') {
+                    modifiedHistory.shift();
                 }
                 requestBody.contents = modifiedHistory;
                 
